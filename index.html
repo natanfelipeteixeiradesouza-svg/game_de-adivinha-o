@@ -50,7 +50,7 @@
     cursor: pointer;
     border-radius: 5px;
     color: #ffffff;
-    background-color: chocolate; 
+    background-color: #F24405; 
    }
 
 
@@ -76,6 +76,12 @@
  </div>
 
  <script>
+  function voltarCorOriginal(){
+    var botao_adivinhar = document.getElementById('botaoAdivinhar');
+   botao_adivinhar.style.backgroundColor = '#F24405';
+
+  }
+
   function escurecerBotao(){
    var botao_adivinhar = document.getElementById('botaoAdivinhar');
    botao_adivinhar.style.backgroundColor = '#BF3415';
