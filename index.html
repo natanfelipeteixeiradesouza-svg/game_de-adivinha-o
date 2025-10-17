@@ -88,10 +88,10 @@
    botao_adivinhar.style.backgroundColor = '#BF3415';
   }
 
- let  numeroSecreto = Math.random();
+ let  numeroSecreto = Math.floor (Math.random() * 100 ) +1;
 
   function verificarPalpite(){
-    
+
    var caixa_texto = document.getElementById('NMPalpite');
    //--alert( caixa_texto.value );
    alert(numeroSecreto);
