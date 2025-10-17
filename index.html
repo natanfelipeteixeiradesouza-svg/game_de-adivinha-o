@@ -93,7 +93,13 @@
   function verificarPalpite(){
 
    var caixa_texto = document.getElementById('NMPalpite');
-   //--alert( caixa_texto.value );
+   var chuteDoJogador = parceInt(caixa_texto.value);
+
+   if(chuteDoJogador == numeroSecreto){
+    alert("Você acertou!");
+    
+   }
+
    alert(numeroSecreto);
   }
  
