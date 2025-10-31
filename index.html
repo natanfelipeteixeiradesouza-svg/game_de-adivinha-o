@@ -2,20 +2,20 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" 
-    content="width=device-width, initial-scale=1.0">
-
+          content="width=device-width, initial-scale=1.0">
+    
     <title>Jogo de Adivinhação - IFG 2º Áudio e Vídeo</title>
     <style>
 
-  .corpo_da_pagina{
-     font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #ffffff;
-            margin: 0;
-  }
+      .corpoDaPagina {
+          font-family: Arial, sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background-color: #f4f4f4;
+          margin: 0;
+      }
 
   .container{
     text-align: center;
@@ -53,58 +53,50 @@
     background-color: #F24405; 
    }
 
-
-
     </style>
   </head>
-  
+
+  <body class="corpoDaPagina" >
+     
+    <div class="container">
+      <h1>Jogo de Adivinhação</h1>
+      <p>Tente adivinhar o número secreto entre 1 e 100</p>
+
+      <input type="number" id="NMPalpite" min="1" max="100"/>
+
+      <button id="BTNAdivinhar" 
+              onmouseover="escurecerBotao()"
+              onmouseout="voltarCorOriginalBotao()"
+              onclick="verificarPalpite()"> 
+              Adivinhar 
+      </button>
+    </div>
+    <script>
+      function voltarCorOriginalBotao(){
+        var botao_adivinhar = document.getElementById('BTNAdivinhar');
+        botao_adivinhar.style.backgroundColor = '#28a745';
+      }
+
+      function escurecerBotao(){
+        var botao_adivinhar = document.getElementById('BTNAdivinhar');
+        botao_adivinhar.style.backgroundColor = '#F5DD27';
+      }
+
+
+      let  numeroSecreto = Math.floor( Math.random() * 100 ) + 1;
+
+      function verificarPalpite(){
+         var caixa_texto = document.getElementById('NMPalpite');
+         var chuteDoJogador = parseInt(caixa_texto.value);
+         
+         if(chuteDoJogador == numeroSecreto){
+           alert("Você acertou!");
+         }
+          alert(numeroSecreto);
+      }
+
+    </script>
     
-  </head>
-  
-<body class="corpo_da_pagina">
-  
- <divclear class="container">
-  <h1>Jogo de Adivinhação</h1>
-  <p>Tente adivinhar o número secreto entre 1 e 100</p>
-  <input type="number" id="NMPalpite" min="1" max="100"/>
-  <button id="botaoAdivinhar"
-         onmouseover="escurecerBotao()"
-         onmouseout="voltarCorOriginal()"
-         onclick="verificarPalpite()" > 
-         Adivinhar 
-  </button>
-
- </div>
-
- <script>
-  function voltarCorOriginal(){
-    var botao_adivinhar = document.getElementById('botaoAdivinhar');
-   botao_adivinhar.style.backgroundColor = '#F24405';
-
-  }
-
-  function escurecerBotao(){
-   var botao_adivinhar = document.getElementById('botaoAdivinhar');
-   botao_adivinhar.style.backgroundColor = '#BF3415';
-  }
-
- let  numeroSecreto = Math.floor (Math.random() * 100 ) +1;
-
-  function verificarPalpite(){
-
-   var caixa_texto = document.getElementById('NMPalpite');
-   var chuteDoJogador = parceInt(caixa_texto.value);
-
-   if(chuteDoJogador == numeroSecreto){
-    alert("Você acertou!");
-    
-   }
-
-   alert(numeroSecreto);
-  }
- 
- </script>
-  
-</body>
-
+  </body>
 </html>
+
