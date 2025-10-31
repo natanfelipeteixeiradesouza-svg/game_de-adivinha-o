@@ -99,9 +99,10 @@
          var chuteDoJogador = parseInt(caixa_texto.value);
          
          if(chuteDoJogador == numeroSecreto){
-           div_mensagem.textContent = ("Você acertou!");
-           div_mensagem.textContent = ("Você errou!");
-         }
+           div_mensagem.textContent = "Você acertou!";
+        }else{
+           div_mensagem.textContent = "Você errou!";
+        }
           alert(numeroSecreto);
       }
 
