@@ -53,6 +53,11 @@
     background-color: #F24405; 
    }
 
+   .message{
+     margin-top: 20px;
+     font-size: 18px;
+   }
+
     </style>
   </head>
 
@@ -70,6 +75,8 @@
               onclick="verificarPalpite()"> 
               Adivinhar 
       </button>
+    <div class="message" id="DIVMensagem"></div> 
+
     </div>
     <script>
       function voltarCorOriginalBotao(){
@@ -84,13 +91,15 @@
 
 
       let  numeroSecreto = Math.floor( Math.random() * 100 ) + 1;
+      let qtdTentativas = 5;
 
       function verificarPalpite(){
          var caixa_texto = document.getElementById('NMPalpite');
+         var div_mensagem = document.getElementById('DIVMensagem');
          var chuteDoJogador = parseInt(caixa_texto.value);
          
          if(chuteDoJogador == numeroSecreto){
-           alert("Você acertou!");
+           div_mensagem.textContent = ("Você acertou!");
          }
           alert(numeroSecreto);
       }
