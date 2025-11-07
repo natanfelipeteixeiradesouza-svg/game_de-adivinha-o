@@ -134,16 +134,28 @@
          
          if(chuteDoJogador == numeroSecreto){
             div_mensagem.textContent = "Você acertou!";
-         }else{
-            div_mensagem.textContent = "Você errou!";
+         }else if(qtdTentativas > 0){
+
+          if(chuteDoJogador > numeroSecreto){
+           div_mensagem.textContent = "Errado! O número secreto é menor. Você tem " +qtdTentativas+" tentativas restantes";
+
+          }else{
+            div_mensagem.textContent = "Errado! O número secreto é maior. Você tem " +qtdTentativas+" tentativas restantes";
+          }
+          }
+
+         se{
+          div_mensagem.textContent = "Fim de jogo! O número secreto era "+numeroSecreto;
+          desabilitarJogo();
+
          }
 
-         if(qtdTentativas == 0){
-            desabilitarJogo();
-            div_mensagem.textContent = "Fim de jogo! O número secreto era "+numeroSecreto;
-         }
           
-      }
+         }
+            
+         
+
+        
 
     </script>
     
