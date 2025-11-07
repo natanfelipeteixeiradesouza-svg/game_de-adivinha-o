@@ -91,8 +91,9 @@
         var caixa_texto = document.getElementById("NMPalpite");
         var botao_adivinhar = document.getElementById('BTNAdivinhar');
         botao_adivinhar.disabled = true;
-        botao_adivinhar.style.backgroundColor = '808080';
-        caixa_texto = true;
+        caixa_texto.disabled = true;
+
+        botao_adivinhar.style.backgroundColor = '#808080';
       }
 
       function escurecerBotao(){
