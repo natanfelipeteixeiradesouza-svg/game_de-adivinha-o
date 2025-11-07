@@ -91,7 +91,7 @@
       function desabilitarJogo(){
         var caixa_texto = document.getElementById("NMPalpite");
         var botao_adivinhar = document.getElementById('BTNAdivinhar');
-        
+
         botao_adivinhar.disabled = true;
         caixa_texto.disabled = true;
 
@@ -140,7 +140,8 @@
          }
 
          if(qtdTentativas == 0){
-          div_mensagem.textContent = "Fim de jogo! O número secreto era "+numeroSecreto;
+            desabilitarJogo();
+            div_mensagem.textContent = "Fim de jogo! O número secreto era "+numeroSecreto;
          }
           
       }
