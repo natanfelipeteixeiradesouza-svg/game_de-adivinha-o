@@ -84,6 +84,12 @@
         botao_adivinhar.style.backgroundColor = '#28a745';
       }
 
+      function desabilitarJogo(){
+        var botao_adivinhar = document.getElementById('BTNAdivinhar');
+        botao_adivinhar.disabled = true;
+        botao_adivinhar.style.backgroundColor = '808080';
+      }
+
       function escurecerBotao(){
         var botao_adivinhar = document.getElementById('BTNAdivinhar');
         botao_adivinhar.style.backgroundColor = '#F5DD27';
