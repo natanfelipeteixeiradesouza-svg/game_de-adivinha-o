@@ -1,0 +1,144 @@
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jogo de Adivinhação - IFG 2º Áudio e Vídeo</title>
+  <style>
+    .corpoDaPagina {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #0066ff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(250, 60, 7, 0.4);
+    }
+
+    h1 {
+      color: #ff7b00
+    }
+    
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 100px;
+      margin-bottom: 10px;
+    }
+
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      color: #ffffff;
+      background-color: #28a745;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body class="corpoDaPagina">
+
+  <div class="container">
+    <h1>Jogo de Adivinhação</h1>
+    <p>Tente adivinhar o número secreto entre 1 e 100</p>
+
+    <input type="number" id="NMPalpite" min="1" max="100" />
+
+    <button id="BTNAdivinhar" onmouseover="escurecerBotao()" onmouseout="voltarCorOriginalBotao()"
+      onclick="verificarPalpite()">
+      Adivinhar
+    </button>
+    <div class="message" id="DIVMensagem"></div>
+
+  </div>
+  <script>
+
+    function desabilitarJogo() {
+      var caixa_texto = document.getElementById('NMPalpite');
+      var botao_adivinhar = document.getElementById('BTNAdivinhar');
+      
+      botao_adivinhar.disabled = true;
+      caixa_texto.disabled = true;
+
+      botao_adivinhar.style.backgroundColor = '#DCDCDC';
+    }
+
+    function voltarCorOriginalBotao() {
+      var botao_adivinhar = document.getElementById('BTNAdivinhar');
+      if (botao_adivinhar.disabled == false) {
+        botao_adivinhar.style.backgroundColor = '#28a745';
+      }
+    }
+
+    function escurecerBotao() {
+      var botao_adivinhar = document.getElementById('BTNAdivinhar');
+      if (botao_adivinhar.disabled == false) {
+        botao_adivinhar.style.backgroundColor = '#F5DD27';
+      }
+    }
+
+
+    let numeroSecreto = Math.floor(Math.random() * 100) + 1;
+    let qtdTentativas = 5;
+
+    function verificarPalpite() {
+
+      var caixa_texto = document.getElementById('NMPalpite');
+      var div_mensagem = document.getElementById("DIVMensagem");
+      var chuteDoJogador = parseInt(caixa_texto.value);
+    
+
+    if (isNaN(chuteDoJogador)) {
+      div_mensagem.textContent = "Por favor, insira um número válido entre 1 e 100.";
+      return;
+    }
+
+    if (chuteDoJogador > 100) {
+      div_mensagem.textContent = "Por favor, insira um número válido entre 1 e 100.";
+      return;
+    }
+
+    if (chuteDoJogador < 1) {
+      div_mensagem.textContent = "Por favor, insira um número válido entre 1 e 100.";
+      return;
+    }
+
+    qtdTentativas = qtdTentativas - 1;
+
+    if (chuteDoJogador == numeroSecreto) {
+        div_mensagem.textContent = "Você acertou!";
+        desabilitarJogo(); 
+    } else if (qtdTentativas > 0) {
+        if (chuteDoJogador > numeroSecreto) {
+          div_mensagem.textContent = "Errado! O número secreto é menor. Você tem "+qtdTentativas+" tentativas"
+        } else {
+          div_mensagem.textContent = "Errado! O número secreto é maior. Você tem "+qtdTentativas+" tentativas"
+        }
+    } else {
+        div_mensagem.textContent = "Fim de jogo! O número era " + numeroSecreto;
+        desabilitarJogo();      
+    }
+  }
+
+  </script>
+
+</body>
+
+</html>
